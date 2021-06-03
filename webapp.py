@@ -11,15 +11,16 @@ def main():
     db = client[db_name]
     collection = db['DSWclassdb']
 
-#2. insert additional document using insert_one()
+
+    doc={"name": "Michael", "birthday":"11/14/2001"}
     collection_id = collection.insert_one(collection).inserted_id
-    collection_id
+    collection_id #2. insert additional document using insert_one()
 
 
     collection.count_documents({}) #3 print the number of documents in the collection
 
 
-    pprint.pprint(collection.find_one())#4. print the first document in the collection
+    pprint.pprint collection.find()#4. print the first document in the collection
 
 
     for post in collection.find():
